@@ -1,4 +1,3 @@
-// Documentation available at https://docs.rs/rug/1.11.0/rug/index.html
 mod lib;
 use std::env;
 
