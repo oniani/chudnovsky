@@ -25,10 +25,10 @@ The number of iterations and the precision can both be modified via providing
 different arguments to the binary. The first and second arguments being the
 precision and the number of iterations respectively.
 
-One could also directly change `ITERATIONS` and `PRECISION` constants in
+One could also directly change `PRECISION` and `ITERATIONS` constants in
 `src/main.rs`.
 
-The bigger both variables, the more digits are going to be generated.
+The bigger both variables, the more digits will be generated.
 
 ## References
 
