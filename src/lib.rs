@@ -15,17 +15,17 @@ pub fn pi(prec: u32, its: u32) -> Float {
     const S:   u32 = 0;
 
     // Initialize the values
-    let a:     Float = Float::with_val(prec, A);
-    let b:     Float = Float::with_val(prec, B).sqrt();
-    let c:     Float = Float::with_val(prec, &a * &b);
-    let mut k: Float = Float::with_val(prec, K);
-    let k_s:   Float = Float::with_val(prec, K_S);
-    let mut l: Float = Float::with_val(prec, L);
-    let l_s:   Float = Float::with_val(prec, L_S);
-    let mut m: Float = Float::with_val(prec, M);
-    let mut x: Float = Float::with_val(prec, X);
-    let x_s:   Float = Float::with_val(prec, X_S);
-    let mut s: Float = Float::with_val(prec, S);
+    let a     = Float::with_val(prec, A);
+    let b     = Float::with_val(prec, B).sqrt();
+    let c     = Float::with_val(prec, &a * &b);
+    let mut k = Float::with_val(prec, K);
+    let k_s   = Float::with_val(prec, K_S);
+    let mut l = Float::with_val(prec, L);
+    let l_s   = Float::with_val(prec, L_S);
+    let mut m = Float::with_val(prec, M);
+    let mut x = Float::with_val(prec, X);
+    let x_s   = Float::with_val(prec, X_S);
+    let mut s = Float::with_val(prec, S);
 
     // Iterate
     for q in 0..its {
@@ -48,5 +48,5 @@ pub fn pi(prec: u32, its: u32) -> Float {
     // Pi
     let pi = Float::with_val(prec, &c) * &s;
 
-    return pi;
+    pi
 }
