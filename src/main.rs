@@ -1,4 +1,6 @@
 mod lib;
+
+use lib::pi;
 use std::env;
 
 // Default precision
@@ -11,7 +13,7 @@ fn main() {
     let args: Vec<_> = env::args().collect();
 
     if args.len() == 1 {
-        print!("Approximation: {:?}\n", lib::pi(PRECISION, ITERATIONS));
+        print!("Approximation: {:?}\n", pi(PRECISION, ITERATIONS));
         print!("Precision:     {:?}\n", PRECISION);
         print!("Iterations:    {:?}\n", ITERATIONS);
     } else if args.len() == 2 {
@@ -21,10 +23,7 @@ fn main() {
         if precision <= 0 {
             print!("Precision should be a positive integer\n");
         } else {
-            print!(
-                "Approximation: {:?}\n",
-                lib::pi(precision as u32, ITERATIONS)
-            );
+            print!("Approximation: {:?}\n", pi(precision as u32, ITERATIONS));
             print!("Precision:     {:?}\n", precision);
             print!("Iterations:    {:?}\n", ITERATIONS);
         }
@@ -42,7 +41,7 @@ fn main() {
         } else {
             print!(
                 "Approximation: {:?}\n",
-                lib::pi(precision as u32, iterations as u32)
+                pi(precision as u32, iterations as u32)
             );
             print!("Precision:     {:?}\n", precision);
             print!("Iterations:    {:?}\n", iterations);
