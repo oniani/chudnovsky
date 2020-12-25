@@ -37,4 +37,4 @@ The bigger both variables, the more digits will be generated.
 
 ## License
 
-[GNU General Public License v3.0](LICENSE)
+[MIT License](LICENSE)
