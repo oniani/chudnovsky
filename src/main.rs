@@ -13,41 +13,51 @@ fn main() {
     // Command line arguments
     let args: Vec<_> = env::args().collect();
 
-    if args.len() == 1 {
-        print!("Approximation: {:?}\n", pi(PRECISION, ITERATIONS));
-        print!("Precision:     {:?}\n", PRECISION);
-        print!("Iterations:    {:?}\n", ITERATIONS);
-    } else if args.len() == 2 {
-        let precision = args[1]
-            .parse::<i32>()
-            .expect("Precision should be a positive integer");
-        if precision <= 0 {
-            print!("Precision should be a positive integer\n");
-        } else {
-            print!("Approximation: {:?}\n", pi(precision as u32, ITERATIONS));
-            print!("Precision:     {:?}\n", precision);
+    // Make decisions based on the number of arguments
+    match args.len() {
+        1 => {
+            print!("Approximation: {:?}\n", pi(PRECISION, ITERATIONS));
+            print!("Precision:     {:?}\n", PRECISION);
             print!("Iterations:    {:?}\n", ITERATIONS);
         }
-    } else if args.len() == 3 {
-        let precision = args[1]
-            .parse::<i32>()
-            .expect("Precision should be a positive integer");
-        let iterations = args[2]
-            .parse::<i32>()
-            .expect("Number of iterations should be a positive integer");
-        if precision <= 0 {
-            print!("Precision should be a positive integer\n");
-        } else if iterations <= 0 {
-            print!("Number of iterations should be a positive integer\n");
-        } else {
-            print!(
-                "Approximation: {:?}\n",
-                pi(precision as u32, iterations as u32)
-            );
-            print!("Precision:     {:?}\n", precision);
-            print!("Iterations:    {:?}\n", iterations);
+
+        2 => {
+            let precision = args[1]
+                .parse::<u32>()
+                .expect("Precision must be a positive integer!");
+            if precision <= 0 {
+                panic!("Precision must be a positive integer!");
+            } else {
+                print!(
+                    "Approximation: {:?}\n",
+                    pi(precision as u32, ITERATIONS)
+                );
+                print!("Precision:  {:?}\n", precision);
+                print!("Iterations: {:?}\n", ITERATIONS);
+            }
         }
-    } else {
-        print!("Invalid argument\n");
+
+        3 => {
+            let precision = args[1]
+                .parse::<u32>()
+                .expect("Precision must be a positive integer!");
+            let iterations = args[2]
+                .parse::<u32>()
+                .expect("Number of iterations must be a positive integer!");
+            if precision <= 0 {
+                panic!("Precision must be a positive integer!");
+            } else if iterations <= 0 {
+                panic!("Number of iterations must be a positive integer!");
+            } else {
+                print!(
+                    "Approximation: {:?}\n",
+                    pi(precision as u32, iterations as u32)
+                );
+                print!("Precision:  {:?}\n", precision);
+                print!("Iterations: {:?}\n", iterations);
+            }
+        }
+
+        _ => panic!("Redundant argument."),
     }
 }
