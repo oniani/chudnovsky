@@ -10,6 +10,7 @@ const PRECISION: u32 = 100;
 const ITERATIONS: u32 = 100;
 
 fn main() {
+    // Command line arguments
     let args: Vec<_> = env::args().collect();
 
     if args.len() == 1 {

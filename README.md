@@ -30,6 +30,14 @@ One could also directly change `PRECISION` and `ITERATIONS` constants in
 
 The bigger both variables, the more digits will be generated.
 
+## Tests
+
+Tests can be run as follows:
+
+```
+cargo test --release
+```
+
 ## References
 
 - [rug](https://docs.rs/rug/1.11.0/rug/index.html)
