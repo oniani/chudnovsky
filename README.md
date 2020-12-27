@@ -2,8 +2,8 @@
 
 The Chudnovsky algorithm for calculating the digits of Pi.
 
-_Fun fact: it generated over 3 million digits in a little over 7 minutes, and
-not on a powerful CPU._
+_Fun fact: it generated over 3 million digits in a little over 7 minutes on a
+regular, not very powerful machine._
 
 ## Dependencies
 
