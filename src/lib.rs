@@ -1,30 +1,35 @@
 use rug::{ops::Pow, Float};
 
 /// The Chudnovsky algorithm for calculating the digits of Pi
+///
+/// # Arguments
+///
+/// * `prec` - Precision
+/// * `its` - Number of iterations
 pub fn pi(prec: u32, its: u32) -> Float {
     // Define the constants
-    const A:   u32 = 42_688_0;
-    const B:   u32 = 10_005;
-    const K:   u32 = 6;
+    const A: u32 = 42_688_0;
+    const B: u32 = 10_005;
+    const K: u32 = 6;
     const K_S: u32 = 12;
-    const L:   u32 = 135_914_09;
+    const L: u32 = 135_914_09;
     const L_S: u32 = 545_140_134;
-    const M:   u32 = 1;
-    const X:   u32 = 1;
+    const M: u32 = 1;
+    const X: u32 = 1;
     const X_S: i64 = -262_537_412_640_768_000;
-    const S:   u32 = 0;
+    const S: u32 = 0;
 
     // Initialize the values
-    let a     = Float::with_val(prec, A);
-    let b     = Float::with_val(prec, B).sqrt();
-    let c     = Float::with_val(prec, &a * &b);
+    let a = Float::with_val(prec, A);
+    let b = Float::with_val(prec, B).sqrt();
+    let c = Float::with_val(prec, &a * &b);
     let mut k = Float::with_val(prec, K);
-    let k_s   = Float::with_val(prec, K_S);
+    let k_s = Float::with_val(prec, K_S);
     let mut l = Float::with_val(prec, L);
-    let l_s   = Float::with_val(prec, L_S);
+    let l_s = Float::with_val(prec, L_S);
     let mut m = Float::with_val(prec, M);
     let mut x = Float::with_val(prec, X);
-    let x_s   = Float::with_val(prec, X_S);
+    let x_s = Float::with_val(prec, X_S);
     let mut s = Float::with_val(prec, S);
 
     // Iterate
