@@ -1,18 +1,29 @@
+//! The Chudnovsky algorithm for calculating the digits of Pi.
+
+#![warn(clippy::all, clippy::pedantic, missing_docs)]
+
 use rug::{ops::Pow, Float};
 
-/// The Chudnovsky algorithm for calculating the digits of Pi
+/// The Chudnovsky algorithm for calculating the digits of Pi.
 ///
 /// # Arguments
 ///
-/// * `prec` - Precision
-/// * `its` - Number of iterations
+/// * `prec` - Precision.
+/// * `its` - Number of iterations.
+///
+/// # Example
+///
+/// ```
+/// dbg!(pi(100, 100));
+/// ```
+#[must_use]
 pub fn pi(prec: u32, its: u32) -> Float {
     // Define the constants
-    const A: u32 = 42_688_0;
+    const A: u32 = 42_68_80;
     const B: u32 = 10_005;
     const K: u32 = 6;
     const K_S: u32 = 12;
-    const L: u32 = 135_914_09;
+    const L: u32 = 13_59_14_09;
     const L_S: u32 = 545_140_134;
     const M: u32 = 1;
     const X: u32 = 1;
@@ -50,7 +61,5 @@ pub fn pi(prec: u32, its: u32) -> Float {
     s = Float::with_val(prec, 1) / &s;
 
     // Pi
-    let pi = Float::with_val(prec, &c) * &s;
-
-    pi
+    Float::with_val(prec, &c) * &s
 }
