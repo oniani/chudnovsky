@@ -38,8 +38,7 @@ pub fn pi(prec: u32, its: u32) -> Float {
         s += Float::with_val(prec, &m * &l) / &x;
 
         // M_q = M_q * (K_q^3 - 16 * K_q) / (q + 1)^3
-        m *= (k.clone().pow(3) - 16 * k.clone())
-            / Float::with_val(prec, (q + 1).pow(3));
+        m *= (k.clone().pow(3) - 16 * k.clone()) / Float::with_val(prec, (q + 1).pow(3));
 
         // Update K_q, L_q, and X_q
         k += &k_s;

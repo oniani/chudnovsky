@@ -16,11 +16,10 @@ fn main() {
     // Make decisions based on the number of arguments
     match args.len() {
         1 => {
-            print!("Approximation: {:?}\n", pi(PRECISION, ITERATIONS));
-            print!("Precision:     {:?}\n", PRECISION);
-            print!("Iterations:    {:?}\n", ITERATIONS);
+            println!("Approximation: {:?}", pi(PRECISION, ITERATIONS));
+            println!("Precision:     {:?}", PRECISION);
+            println!("Iterations:    {:?}", ITERATIONS);
         }
-
         2 => {
             let precision = args[1]
                 .parse::<u32>()
@@ -28,15 +27,11 @@ fn main() {
             if precision <= 0 {
                 panic!("Precision must be a positive integer!");
             } else {
-                print!(
-                    "Approximation: {:?}\n",
-                    pi(precision as u32, ITERATIONS)
-                );
-                print!("Precision:  {:?}\n", precision);
-                print!("Iterations: {:?}\n", ITERATIONS);
+                println!("Approximation: {:?}", pi(precision as u32, ITERATIONS));
+                println!("Precision:  {:?}", precision);
+                println!("Iterations: {:?}", ITERATIONS);
             }
         }
-
         3 => {
             let precision = args[1]
                 .parse::<u32>()
@@ -49,12 +44,12 @@ fn main() {
             } else if iterations <= 0 {
                 panic!("Number of iterations must be a positive integer!");
             } else {
-                print!(
-                    "Approximation: {:?}\n",
+                println!(
+                    "Approximation: {:?}",
                     pi(precision as u32, iterations as u32)
                 );
-                print!("Precision:  {:?}\n", precision);
-                print!("Iterations: {:?}\n", iterations);
+                println!("Precision:  {:?}", precision);
+                println!("Iterations: {:?}", iterations);
             }
         }
 
